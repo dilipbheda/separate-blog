@@ -1,0 +1,2 @@
+# separate-blog
+WordPress theme
