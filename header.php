@@ -1,13 +1,14 @@
 <?php
 /**
-* The header for separate blog theme
-*
-* This is the template that displays all of the <head> section and everything up until <div id="content">
-*
-* @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
-*
-* @package Separate_Blog
-*/
+ * The header for separate blog theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Separate_Blog
+ */
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -33,24 +34,24 @@
 			<div class="container">
 				<div class="navbar-header d-flex align-items-center justify-content-between">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand">
-						<?php 
-							if ( has_custom_logo() ) :
-								the_custom_logo();
-							else:
-								echo esc_html( get_bloginfo( 'name' ) );
-							endif; 
+						<?php
+						if ( has_custom_logo() ) :
+							the_custom_logo();
+						else :
+							echo esc_html( get_bloginfo( 'name' ) );
+						endif;
 						?>
 				</a>
 				<button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="<?php esc_html_e( 'Toggle navigation', 'separate-blog' ); ?>" class="navbar-toggler"><span></span><span></span><span></span></button>
 			</div>
 			<div id="navbarcollapse" class="collapse navbar-collapse">
-				<?php 
+				<?php
 					wp_nav_menu(
 						array(
 							'theme_location' 	=> 'primary',
 							'menu_class' 		=> 'navbar-nav ml-auto',
 							'container' 		=> 'ul',
-							'walker' 			=> new Separate_Blog_Walker_Nav_Menu()
+							'walker' 			=> new Separate_Blog_Walker_Nav_Menu(),
 						)
 					); 
 				?>

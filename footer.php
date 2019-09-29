@@ -1,13 +1,14 @@
 <?php
 /**
-* The template for displaying the footer
-*
-* Contains the closing of the #content div and all content after.
-*
-* @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
-*
-* @package Separate_Blog
-*/
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Separate_Blog
+ */
+
 ?>
 <footer class="main-footer">
 	<div class="container">
@@ -24,7 +25,7 @@
 							<li class="list-inline-item">
 								<a href="<?php echo esc_url( get_theme_mod( 'separate_blog_facebook' ) ); ?>"><i class="fa fa-facebook"></i></a>
 							</li>
-						<?php endif;?>
+						<?php endif; ?>
 
 						<?php if ( get_theme_mod( 'separate_blog_twitter' ) ): ?>
 							<li class="list-inline-item">
@@ -57,11 +58,21 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div class="menus d-flex">
-					<?php wp_nav_menu( array( 'theme_location' => 'footer', 'container' => 'ul', 'menu_class' => 'list-unstyled' ) ); ?>
+			<?php if ( has_nav_menu( 'footer' ) ) : ?>
+				<div class="col-md-4">
+					<div class="menus d-flex">
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'footer',
+									'container' => 'ul',
+									'menu_class' => 'list-unstyled',
+								)
+							);
+						?>
+					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 			<div class="col-md-4">
 				<div class="latest-posts">
 					<?php
@@ -82,7 +93,7 @@
 				<div class="row">
 					<div class="col-md-6">
 					&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?> &middot;
-						<?php $link = sprintf( '<a href="%1$s" title="%2$s" rel="%3$s">%4$s</a>', esc_url( 'http://profiles.wordpress.org/dilipbheda' ), 'WordPress Profile', 'nofollow', 'Dilip Bheda' );
+						<?php $link = wp_sprintf( '<a href="%1$s" title="%2$s" rel="%3$s">%4$s</a>', esc_url( 'http://profiles.wordpress.org/dilipbheda' ), 'WordPress Profile', 'nofollow', 'Dilip Bheda' );
 						printf( esc_html__( '%1$s Theme by %2$s', 'separate-blog' ), 'Separate Blog', $link ); 
 						?>
 					</div>
